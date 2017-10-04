@@ -50,6 +50,37 @@ $(document).ready(()=>{
 		var password2 = $('.password2').val();
 		if(password !== password2){
 			$('.password-error').html('Your passwords do not match.')
+			$('.password-error').show();
+		}
+
+		var numberFound = false;
+		for(let i = 0; i < password.length; i++){
+			if(isNaN(Number(password[i]))){
+				// 9 is not not a number.
+				// this is not a number.
+				// leave numberFound alone
+			}else{
+				// this is a number. We tried to convert it and it
+				// didn't return true to isNaN, so it must be a number.
+				// Flip the bool
+				numberFound = true;
+				// no point in looking anymore. They have 1. 
+				// We only asked for 1.
+				break;
+
+			}
+		}
+		// numberFound = !numberFound;
+		// if(numberFound !== true){
+
+		// RUBY!!!
+		// until(gameOver)
+		// while(gameOn)
+
+		if(!numberFound){
+		// if(numberFound === false){
+			$('.password-error').html("Your password must contain at least one number.");
+			$('.password-error').show();
 		}
 
 		// var userName = $('.full-name').val();
